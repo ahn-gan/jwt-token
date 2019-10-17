@@ -41,7 +41,7 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
 
         Claims claims = jwtUtil.getClaimsFromToken(token);
         if (null == claims || jwtUtil.isTokenExpired(claims.getExpiration())) {
-            logger.info("Token过期，请重新登录");
+            logger.info("Token过期或者无效，请重新登录");
             return false;
         }
         // 获取用户信息
