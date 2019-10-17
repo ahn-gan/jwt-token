@@ -8,24 +8,21 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Date;
 
 @Component
-@ConfigurationProperties(prefix = "jwt", ignoreInvalidFields = true, ignoreUnknownFields = true)
 public class JwtUtil {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    private long expire;
+    private long expire = 60;
 
-    private String secret;
+    private String secret = "36db4a6d467329a194557cc84ac787c1";
 
     public String generateToken(User user) {
         Date nowDate = new Date();
