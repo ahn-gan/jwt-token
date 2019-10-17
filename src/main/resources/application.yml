@@ -1,2 +1,7 @@
 server:
   port: 8088
+
+jwt:
+  expire: 60
+  secret: 36db4a6d467329a194557cc84ac787c1
+  tokenCookieMaxAge: 60
