@@ -20,13 +20,13 @@ public class JwtUtil {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    private long expire = 60;
+    private long expire = 30 * 60 * 1000;
 
-    private String secret = "36db4a6d467329a194557cc84ac787c1";
+    private String secret = "458ac42b1523aLwjAaRJa6d4673iMXOaCdb629a14OylCb";
 
     public String generateToken(User user) {
         Date nowDate = new Date();
-        Date expireDate = new Date(nowDate.getTime() + expire * 1000);
+        Date expireDate = new Date(nowDate.getTime() + expire);
 
         try {
             return Jwts.builder()
